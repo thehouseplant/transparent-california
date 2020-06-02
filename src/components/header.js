@@ -23,16 +23,16 @@ const Header = ({ siteTitle }) => (
           <Nav.Link as="span">Counties</Nav.Link>
         </Link>
         <NavDropdown title="Education" id="basic-nav-dropdown">
-          <Link to="/universities">
+          <Link to="/edu/universities">
             <NavDropdown.Item as="span">Universities</NavDropdown.Item>
           </Link>
-          <Link to="/community-colleges">
+          <Link to="/edu/community">
             <NavDropdown.Item as="span">Community Colleges</NavDropdown.Item>
           </Link>
-          <Link to="/k-12">
+          <Link to="/edu/k-12">
             <NavDropdown.Item as="span">K-12 Schools</NavDropdown.Item>
           </Link>
-          <Link to="/charter">
+          <Link to="/edu/charter">
             <NavDropdown.Item as="span">Charter Schools</NavDropdown.Item>
           </Link>
         </NavDropdown>
