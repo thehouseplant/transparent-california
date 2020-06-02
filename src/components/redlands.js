@@ -1,7 +1,11 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
 import BTable from 'react-bootstrap/Table'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
 
 import JSONData from '../../data/redlands2018.json'
 
@@ -11,10 +15,7 @@ function Table({ columns, data }) {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
-
-    // The rest of these things are super handy, too ;)
+    page,
     canPreviousPage,
     canNextPage,
     pageOptions,
@@ -35,7 +36,7 @@ function Table({ columns, data }) {
 
   return (
     <>
-      <BTable striped bordered hover size="sm"  {...getTableProps()}>
+      <BTable striped bordered hover {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -58,54 +59,47 @@ function Table({ columns, data }) {
           })}
         </tbody>
       </BTable>
-      {/* 
-        Pagination can be built however you'd like. 
-        This is just a very basic UI implementation:
-      */}
-      <div className="pagination">
-        <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {'<<'}
-        </Button>{' '}
-        <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {'<'}
-        </Button>{' '}
-        <Button onClick={() => nextPage()} disabled={!canNextPage}>
-          {'>'}
-        </Button>{' '}
-        <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {'>>'}
-        </Button>{' '}
-        <span>
+
+      <Row>
+        <Col>
           Page{' '}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
           </strong>{' '}
-        </span>
-        <span>
-          | Go to page:{' '}
-          <input
-            type="number"
-            defaultValue={pageIndex + 1}
+        </Col>
+
+        <Col>
+          <ButtonGroup>
+            <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+              {'<<'}
+            </Button>{' '}
+            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+              {'<'}
+            </Button>{' '}
+            <Button onClick={() => nextPage()} disabled={!canNextPage}>
+              {'>'}
+            </Button>{' '}
+            <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+              {'>>'}
+            </Button>{' '}
+          </ButtonGroup>
+        </Col>
+
+        <Col>
+          <Form.Control as="select"
+            value={pageSize}
             onChange={e => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0
-              gotoPage(page)
+              setPageSize(Number(e.target.value))
             }}
-            style={{ width: '100px' }}
-          />
-        </span>{' '}
-        <select
-          value={pageSize}
-          onChange={e => {
-            setPageSize(Number(e.target.value))
-          }}
-        >
-          {[10, 20, 30, 40, 50].map(pageSize => (
-            <option key={pageSize} value={pageSize}>
-              Show {pageSize}
-            </option>
-          ))}
-        </select>
-      </div>
+          >
+            {[10, 20, 30, 40, 50].map(pageSize => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </Form.Control>
+        </Col>
+      </Row>
     </>
   )
 }
@@ -132,10 +126,12 @@ function Redlands() {
   const data = JSONData
 
   return (
-    <div style={{ maxWidth: `960px`, margin: `1.45rem` }}>
+    <div>
       <h1>Redlands</h1>
       
-      <Table columns={columns} data={data} />
+      <p>
+        <Table columns={columns} data={data} />
+      </p>
     </div>
   )
 }
