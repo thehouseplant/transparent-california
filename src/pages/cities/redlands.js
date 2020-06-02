@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'gatsby'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import NumberFormat from 'react-number-format'
 
 import Layout from '../../components/layout'
@@ -87,6 +89,18 @@ function Redlands() {
 
   return (
     <Layout>
+      <Breadcrumb>
+        <Breadcrumb.Item>
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/cities">Cities</Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>
+          Redlands
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      
       <h1>Redlands</h1>
       
       <p>
