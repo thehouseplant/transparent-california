@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
+import NumberFormat from 'react-number-format'
 
 import JSONData from '../../data/redlands2018.json'
 
@@ -118,30 +119,65 @@ function Redlands() {
       {
         Header: 'Base Pay',
         accessor: 'basePay',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Overtime Pay',
         accessor: 'overtimePay',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Other Pay',
         accessor: 'otherPay',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Total Pay',
         accessor: 'totalPay',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Benefits',
         accessor: 'benefits',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Pension Debt',
         accessor: 'pensionDebt',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
       {
         Header: 'Total Pay & Benefits',
         accessor: 'totalPayBenefits',
+        Cell: (props) => {
+          return (
+            <NumberFormat value={props.cell.value} displayType="text" thousandSeparator={true} prefix="$" />
+          )
+        }
       },
     ],
     []
