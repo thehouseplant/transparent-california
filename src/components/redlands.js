@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
+import BTable from 'react-bootstrap/Table'
 
 import JSONData from '../../data/redlands2018.json'
 
@@ -33,7 +34,7 @@ function Table({ columns, data }) {
 
   return (
     <>
-      <table {...getTableProps()}>
+      <BTable striped bordered hover size="sm"  {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -55,7 +56,7 @@ function Table({ columns, data }) {
             )
           })}
         </tbody>
-      </table>
+      </BTable>
       {/* 
         Pagination can be built however you'd like. 
         This is just a very basic UI implementation:
