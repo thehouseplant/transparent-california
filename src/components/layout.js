@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Container>
-        <main>{children}</main>
+      <Container style={{ marginTop: '15px' }}>
+        {children}
       </Container>
     </>
   )
