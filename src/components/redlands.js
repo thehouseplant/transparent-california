@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
 import BTable from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 import JSONData from '../../data/redlands2018.json'
 
@@ -62,18 +63,18 @@ function Table({ columns, data }) {
         This is just a very basic UI implementation:
       */}
       <div className="pagination">
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
-        </button>{' '}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        </Button>{' '}
+        <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
           {'<'}
-        </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        </Button>{' '}
+        <Button onClick={() => nextPage()} disabled={!canNextPage}>
           {'>'}
-        </button>{' '}
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        </Button>{' '}
+        <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {'>>'}
-        </button>{' '}
+        </Button>{' '}
         <span>
           Page{' '}
           <strong>
