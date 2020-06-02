@@ -119,6 +119,30 @@ function Redlands() {
         Header: 'Base Pay',
         accessor: 'basePay',
       },
+      {
+        Header: 'Overtime Pay',
+        accessor: 'overtimePay',
+      },
+      {
+        Header: 'Other Pay',
+        accessor: 'otherPay',
+      },
+      {
+        Header: 'Total Pay',
+        accessor: 'totalPay',
+      },
+      {
+        Header: 'Benefits',
+        accessor: 'benefits',
+      },
+      {
+        Header: 'Pension Debt',
+        accessor: 'pensionDebt',
+      },
+      {
+        Header: 'Total Pay & Benefits',
+        accessor: 'totalPayBenefits',
+      },
     ],
     []
   )
