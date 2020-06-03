@@ -3,6 +3,7 @@ import { useTable, usePagination, useSortBy } from 'react-table'
 import BTable from 'react-bootstrap/Table'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
+import Pagination from 'react-bootstrap/Pagination'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
@@ -78,20 +79,12 @@ function Table({ columns, data }) {
         </Col>
 
         <Col>
-          <ButtonGroup>
-            <Button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-              {'<<'}
-            </Button>{' '}
-            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
-              {'<'}
-            </Button>{' '}
-            <Button onClick={() => nextPage()} disabled={!canNextPage}>
-              {'>'}
-            </Button>{' '}
-            <Button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-              {'>>'}
-            </Button>{' '}
-          </ButtonGroup>
+          <Pagination>
+            <Pagination.First onClick={() => gotoPage(0)} disabled={!canPreviousPage} />
+            <Pagination.Prev onClick={() => previousPage()} disabled={!canPreviousPage} />
+            <Pagination.Next onClick={() => nextPage()} disabled={!canNextPage} />
+            <Pagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage} />
+          </Pagination>
         </Col>
 
         <Col>
