@@ -1,11 +1,12 @@
 import React from 'react'
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useSortBy } from 'react-table'
 import BTable from 'react-bootstrap/Table'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
+import { BsChevronDown, BsChevronUp } from 'react-icons/bs'
 
 function Table({ columns, data }) {
   const {
@@ -29,7 +30,8 @@ function Table({ columns, data }) {
       data,
       initialState: { pageIndex: 0 },
     },
-    usePagination
+    useSortBy,
+    usePagination,
   )
 
   return (
@@ -39,7 +41,16 @@ function Table({ columns, data }) {
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? <Button style={{ marginLeft: '5px' }} size="sm" variant="outline-primary"><BsChevronDown /></Button>
+                        : <Button style={{ marginLeft: '5px' }} size="sm" variant="outline-primary"><BsChevronUp /></Button>
+                      : ''}
+                  </span>
+                </th>
               ))}
             </tr>
           ))}
