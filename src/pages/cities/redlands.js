@@ -4,8 +4,9 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import NumberFormat from 'react-number-format'
 
 import Layout from '../../components/layout'
+import SEO from '../../components/seo'
 import Table from '../../components/table'
-import JSONData from '../../../data/redlands2018.json'
+import JSONData from '../../../data/cities/redlands/redlands2018.json'
 
 function Redlands() {
   const columns = React.useMemo(
@@ -89,6 +90,8 @@ function Redlands() {
 
   return (
     <Layout>
+      <SEO title="City of Redlands" />
+
       <Breadcrumb>
         <Breadcrumb.Item>
           <Link to="/">Home</Link>
@@ -101,7 +104,7 @@ function Redlands() {
         </Breadcrumb.Item>
       </Breadcrumb>
       
-      <h1>Redlands</h1>
+      <h1>City of Redlands</h1>
       
       <p>
         <Table columns={columns} data={data} />
