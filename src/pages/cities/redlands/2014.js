@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { Breadcrumb, Nav } from 'react-bootstrap'
 import NumberFormat from 'react-number-format'
 
-import Layout from '../../components/layout'
-import SEO from '../../components/seo'
-import Table from '../../components/table'
-import JSONData from '../../../data/cities/redlands/redlands2018.json'
+import Layout from '../../../components/layout'
+import SEO from '../../../components/seo'
+import Table from '../../../components/table'
+import JSONData from '../../../../data/cities/redlands/redlands2014.json'
 
 function Redlands() {
   const columns = React.useMemo(
@@ -105,6 +105,35 @@ function Redlands() {
       </Breadcrumb>
       
       <h1>City of Redlands</h1>
+
+      <p>
+        <Nav variant="pills" defaultActiveKey="/cities/redlands/2014">
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands">2018</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2017">2017</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2016">2016</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2015">2015</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2014">2014</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2013">2013</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2012">2012</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/cities/redlands/2011">2011</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </p>
       
       <p>
         <Table columns={columns} data={data} />
